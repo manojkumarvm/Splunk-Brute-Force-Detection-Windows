@@ -77,3 +77,20 @@ EventCode=5379
 | stats count as failed_attempts values(Account_Name) as usernames values(src_ip) as source_ips by host
 | where failed_attempts >= 5
 | sort - failed_attempts
+
+## 🔎 Investigation Findings / Results
+
+The Splunk search was used to identify repeated Windows Event ID **5379** events. The results provide information about the affected Windows host and the associated user account involved in credential-related activity.
+
+Repeated Event ID 5379 events were identified and reviewed based on the available event details. The activity should be investigated further to determine whether the credential access was caused by legitimate applications, administrative activity, or potentially suspicious behavior.
+
+---
+
+## 📝 Conclusion
+
+The investigation demonstrated how Splunk can be used to monitor and identify repeated Windows Event ID **5379** activity.
+
+Event ID 5379 indicates that credentials stored in Windows Credential Manager were read. Although repeated occurrences can be useful for identifying activity that requires investigation, the event alone does not confirm malicious activity.
+
+Further investigation should correlate these events with the affected account, host, timestamps, processes, and other Windows security events to determine whether the activity was legitimate or suspicious.
+

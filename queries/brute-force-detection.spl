@@ -1,0 +1,6 @@
+index=* 
+sourcetype=WinEventLog:Security
+EventCode=4625
+| stats count as failed_attempts values(Account_Name) as usernames values(src_ip) as source_ips by host
+| where failed_attempts >= 5
+| sort - failed_attempts
